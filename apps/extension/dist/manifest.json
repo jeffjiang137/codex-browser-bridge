@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Codex Browser Bridge",
+  "version": "0.3.1",
+  "content_scripts": [{ "matches": ["http://*/*", "https://*/*"], "js": ["ps-images.js"], "all_frames": true, "run_at": "document_idle" }],
+  "description": "A user-authorized browser bridge for Codex MCP workflows.",
+  "minimum_chrome_version": "116",
+  "permissions": ["tabs", "activeTab", "scripting", "storage", "debugger", "downloads", "webNavigation", "nativeMessaging"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Codex Browser Bridge",
+    "default_popup": "popup.html"
+  }
+}

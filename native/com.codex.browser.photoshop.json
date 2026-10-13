@@ -1,0 +1,9 @@
+{
+    "path":  "D:\\浏览器AI助手\\codex-browser-bridge\\native\\ps-host.cmd",
+    "description":  "Browser images to Photoshop via Windows COM",
+    "name":  "com.codex.browser.photoshop",
+    "allowed_origins":  [
+                            "chrome-extension://neiiagjhopbngnfngmngfhblkfdjbcdo/"
+                        ],
+    "type":  "stdio"
+}

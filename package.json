@@ -1,0 +1,30 @@
+{
+  "name": "codex-browser-bridge",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "node scripts/clean.mjs",
+    "build": "npm run clean && npm run build:server && npm run build:extension",
+    "build:server": "tsc -p apps/mcp-server/tsconfig.json",
+    "build:extension": "tsc -p apps/extension/tsconfig.json && node scripts/copy-extension-assets.mjs",
+    "start": "node apps/mcp-server/dist/index.js",
+    "dev:server": "tsx apps/mcp-server/src/index.ts",
+    "test:page": "node scripts/serve-test-page.mjs",
+    "typecheck": "tsc -p apps/mcp-server/tsconfig.json --noEmit && tsc -p apps/extension/tsconfig.json --noEmit",
+    "test:static": "node scripts/static-check.mjs",
+    "verify:phase2": "npm run typecheck && npm run build && npm run test:static"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "latest",
+    "ws": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/chrome": "latest",
+    "@types/node": "latest",
+    "@types/ws": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}
